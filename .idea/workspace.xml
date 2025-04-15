@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80de6d0a-5efb-4303-aa1e-6a34636e5c13" name="Changes" comment="commit" />
+    <list default="true" id="80de6d0a-5efb-4303-aa1e-6a34636e5c13" name="Changes" comment="commit">
+      <change beforePath="$PROJECT_DIR$/images/images/andre-football.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/images/manager1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/images/nefas silk sefer.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/images/nefas-silk-sefer.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/images/sewnet-bishaw.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/images/style.css.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/images/trial-europe1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/images/trial-europe2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/images/trial-europe3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/images/trial-europe4.jpg" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
