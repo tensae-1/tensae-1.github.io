@@ -15,35 +15,35 @@
       --light: #ecf0f1;
       --dark: #2c3e50;
     }
-
+    
     body {
       font-family: 'Open Sans', sans-serif;
       color: var(--dark);
       scroll-behavior: smooth;
       background-color: var(--light);
     }
-
+    
     h1, h2, h3, h4 {
       font-family: 'Poppins', sans-serif;
       font-weight: 700;
     }
-
+    
     .navbar {
       background-color: var(--primary) !important;
       padding: 15px 0;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-
+    
     .navbar-brand, .nav-link {
       color: var(--light) !important;
     }
-
+    
     .nav-link:hover {
       color: var(--secondary) !important;
     }
-
+    
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('hero-bg.jpg') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/hero-bg.jpg') center/cover no-repeat;
       height: 100vh;
       min-height: 600px;
       display: flex;
@@ -54,34 +54,34 @@
       position: relative;
       animation: fadeIn 1.5s ease-in-out;
     }
-
+    
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-
+    
     .pricing-card {
       border: 2px solid var(--secondary);
       transition: all 0.3s;
     }
-
+    
     .price-badge {
       background: var(--secondary);
       color: white;
       padding: 8px 20px;
       border-radius: 50px;
     }
-
+    
     .service-card {
       height: 100%;
       transition: transform 0.3s;
       border-left: 4px solid var(--secondary);
     }
-
+    
     .service-card:hover {
       transform: translateY(-10px);
     }
-
+    
     /* Ethiopian Journey Section */
     #ethiopian-journey {
       padding: 60px 0;
@@ -104,7 +104,7 @@
       padding: 15px;
       text-align: center;
     }
-
+    
     /* Benefits Section */
     #benefits {
       padding: 60px 0;
@@ -114,7 +114,7 @@
       font-size: 1.1rem;
       line-height: 1.6;
     }
-
+    
     /* Trials in Europe Section */
     #trial-europe {
       padding: 60px 0;
@@ -131,7 +131,7 @@
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-
+    
     /* Managers Section */
     #managers {
       padding: 60px 0;
@@ -153,13 +153,13 @@
     #managers .manager-card .card-body {
       padding: 15px;
     }
-
+    
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 2.5rem;
       }
     }
-
+    
     /* Mobile-specific tweaks */
     @media (max-width: 576px) {
       .hero h1 {
@@ -209,7 +209,7 @@
       </div>
     </div>
   </nav>
-
+  
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
@@ -218,13 +218,13 @@
       <a href="#services" class="btn btn-primary btn-lg mt-3">Explore Services</a>
     </div>
   </section>
-
+  
   <!-- About Section -->
   <section id="about" class="container py-5">
     <h2 class="text-center section-title">Professional Background</h2>
     <div class="row align-items-center">
       <div class="col-lg-6">
-        <img src="profile.jpg" alt="Profile Picture" class="img-fluid rounded shadow">
+        <img src="images/profile.jpg" alt="Profile Picture" class="img-fluid rounded shadow">
       </div>
       <div class="col-lg-6 mt-4 mt-lg-0">
         <p>NewLife Consultancy provides personalized football pathway development for aspiring players. My unique experience transitioning from Ethiopian football to English academies and US college soccer gives me unparalleled insight into the recruitment process.</p>
@@ -232,7 +232,7 @@
       </div>
     </div>
   </section>
-
+  
   <!-- Journey Section -->
   <section id="journey" class="py-5 bg-light">
     <div class="container">
@@ -243,17 +243,17 @@
             <h4><i class="fas fa-map-marker-alt me-2 text-primary"></i> Ethiopian Discovery</h4>
             <p>Scouted at 16 while playing men's football in Ethiopia's third division by former Crystal Palace midfielder Jamie Fullarton.</p>
           </div>
-
+          
           <div class="mb-4 p-4 bg-white rounded shadow-sm">
             <h4><i class="fas fa-graduation-cap me-2 text-primary"></i> Just Football Academy</h4>
             <p>Trained for 1 year under Jamie Fullarton's professional coaching, becoming team top scorer against academy competition.</p>
           </div>
-
+          
           <div class="mb-4 p-4 bg-white rounded shadow-sm">
             <h4><i class="fas fa-tshirt me-2 text-primary"></i> Harrogate Town U19</h4>
             <p>Played full season in the English youth system with professional club facilities and coaching.</p>
           </div>
-
+          
           <div class="p-4 bg-white rounded shadow-sm">
             <h4><i class="fas fa-globe-americas me-2 text-primary"></i> US College Soccer</h4>
             <p>Current player for Montgomery County CC, competing at the collegiate level and contributing to the team's success in regional competitions.</p>
@@ -262,7 +262,7 @@
       </div>
     </div>
   </section>
-
+  
   <!-- Ethiopian Journey Section -->
   <section id="ethiopian-journey" class="py-5">
     <div class="container">
@@ -270,7 +270,7 @@
       <div class="row">
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img src="nefas-silk-sefer.jpg" alt="Nefas Silk Sefer Project" class="img-fluid">
+            <img src="images/nefas-silk-sefer.jpg" alt="Nefas Silk Sefer Project" class="img-fluid">
             <div class="card-body">
               <h5 class="card-title">Nefas Silk Sefer Project</h5>
             </div>
@@ -278,7 +278,7 @@
         </div>
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img src="sewnet-bishaw.jpg" alt="Sewnet Bishaw Academy" class="img-fluid">
+            <img src="images/sewnet-bishaw.jpg" alt="Sewnet Bishaw Academy" class="img-fluid">
             <div class="card-body">
               <h5 class="card-title">Sewnet Bishaw Academy</h5>
             </div>
@@ -286,7 +286,7 @@
         </div>
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img src="andre-football.jpg" alt="Andre Football Academy" class="img-fluid">
+            <img src="images/andre-football.jpg" alt="Andre Football Academy" class="img-fluid">
             <div class="card-body">
               <h5 class="card-title">Andre Football Academy</h5>
             </div>
@@ -295,7 +295,7 @@
       </div>
     </div>
   </section>
-
+  
   <!-- Benefits Section -->
   <section id="benefits" class="py-5">
     <div class="container">
@@ -311,28 +311,40 @@
       </p>
     </div>
   </section>
-
+  
   <!-- Trials in Europe Section -->
   <section id="trial-europe" class="py-5 bg-light">
     <div class="container">
       <h2 class="text-center section-title mb-5">Trials in Europe</h2>
       <div class="row">
         <div class="col-md-3 col-6 mb-4">
-          <img src="trial-europe1.jpg" alt="Trial Europe 1" class="trial-img">
+          <figure class="figure">
+            <img src="images/trial-europe1.jpg" alt="Trial Europe 1" class="img-fluid trial-img">
+            <figcaption class="figure-caption text-center">Trial Europe 1</figcaption>
+          </figure>
         </div>
         <div class="col-md-3 col-6 mb-4">
-          <img src="trial-europe2.jpg" alt="Trial Europe 2" class="trial-img">
+          <figure class="figure">
+            <img src="images/trial-europe2.jpg" alt="Trial Europe 2" class="img-fluid trial-img">
+            <figcaption class="figure-caption text-center">Trial Europe 2</figcaption>
+          </figure>
         </div>
         <div class="col-md-3 col-6 mb-4">
-          <img src="trial-europe3.jpg" alt="Trial Europe 3" class="trial-img">
+          <figure class="figure">
+            <img src="images/trial-europe3.jpg" alt="Trial Europe 3" class="img-fluid trial-img">
+            <figcaption class="figure-caption text-center">Trial Europe 3</figcaption>
+          </figure>
         </div>
         <div class="col-md-3 col-6 mb-4">
-          <img src="trial-europe4.jpg" alt="Trial Europe 4" class="trial-img">
+          <figure class="figure">
+            <img src="images/trial-europe4.jpg" alt="Trial Europe 4" class="img-fluid trial-img">
+            <figcaption class="figure-caption text-center">Trial Europe 4</figcaption>
+          </figure>
         </div>
       </div>
     </div>
   </section>
-
+  
   <!-- Managers Section -->
   <section id="managers" class="py-5">
     <div class="container">
@@ -340,17 +352,17 @@
       <div class="row justify-content-center">
         <div class="col-md-6">
           <div class="card manager-card mb-4">
-            <img src="manager1.jpg" alt="Manager Name">
+            <img src="images/manager1.jpg" alt="Manager Name" class="img-fluid">
             <div class="card-body">
               <h5 class="card-title">Manager Name</h5>
               <p class="card-text">
-               John McDermott is an extraordinary figure in English football whose illustrious career spans over two decades at Grimsby Town. Not only did he set the club’s all-time appearance record, but he also proved his worth in the Championship for many years, showcasing his exceptional skill and consistency at the highest levels. A recipient of the prestigious PFA Merit Award, McDermott’s leadership, work ethic, and standout defensive abilities have inspired teammates and earned him a revered spot in the annals of the sport.
+               John McDermott is an extraordinary figure in English football whose illustrious career spans over two decades at Grimsby Town. Not only did he set the club’s all-time appearance record, but he also proved his worth in the Championship for many years, showcasing his exceptional skill and consistency. A recipient of the prestigious PFA Merit Award, McDermott’s leadership, work ethic, and standout defensive abilities have inspired teammates and earned him a revered spot in the annals of the sport.
               </p>
             </div>
           </div>
           <div class="text-center mt-4">
             <p>
-              For clips on how top academies evaluate their players, click
+              For clips on how top academies evaluate their players, click 
               <a href="https://youtu.be/g1kmcpENwW8?feature=shared" target="_blank">here</a>.
             </p>
           </div>
@@ -358,12 +370,12 @@
       </div>
     </div>
   </section>
-
+  
   <!-- Services Section -->
   <section id="services" class="py-5">
     <div class="container">
       <h2 class="text-center section-title">Consultation Services</h2>
-
+      
       <!-- Initial Consultation -->
       <div class="row justify-content-center mb-5">
         <div class="col-lg-6">
@@ -376,7 +388,7 @@
           </div>
         </div>
       </div>
-
+      
       <!-- Premium Services -->
       <div class="row">
         <div class="col-md-6 col-lg-3 mb-4">
@@ -410,7 +422,7 @@
       </div>
     </div>
   </section>
-
+  
   <!-- Contact Section -->
   <section id="contact" class="py-5 bg-light">
     <div class="container">
@@ -446,24 +458,24 @@
       </div>
     </div>
   </section>
-
+  
   <!-- Footer -->
   <footer class="bg-dark text-white py-4">
     <div class="container text-center">
       <p>&copy; 2025 NewLife Consultancy. All Rights Reserved.</p>
     </div>
   </footer>
-
+  
   <script>
     const form = document.getElementById('consultation-form');
     const alertBox = document.getElementById('form-alert');
-
+    
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const submitBtn = form.querySelector('button[type="submit"]');
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
-
+  
       try {
         const formData = new FormData(form);
         const response = await fetch(form.action, {
@@ -471,7 +483,7 @@
           body: formData,
           headers: { 'Accept': 'application/json' }
         });
-
+  
         const result = await response.json();
         if (result.ok) {
           showAlert('✅ Message sent successfully!', 'success');
@@ -487,7 +499,7 @@
         submitBtn.innerHTML = 'Send Request';
       }
     });
-
+  
     function showAlert(message, type) {
       alertBox.innerHTML = `
         <div class="alert alert-${type} alert-dismissible fade show">
