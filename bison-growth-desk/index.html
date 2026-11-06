@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Bison Growth Desk turns focused research into practical growth decisions for founder-led businesses." />
+  <title>Bison Growth Desk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="announcement">Founding-client pilot · High-achieving Bucknell talent · Limited to five businesses</div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Bison Growth Desk home">
+      <span class="brand-mark">BG</span>
+      <span>Bison Growth Desk</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#diagnostic">Free diagnostic</a>
+      <a href="#services">Services</a>
+      <a href="#pilot">Launch Lab</a>
+      <a href="#proof">Proof</a>
+      <a href="#process">Process</a>
+    </nav>
+    <button class="button button-dark header-cta" data-open-intake>Request a project</button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span> Student-led growth studio at Bucknell</div>
+        <h1>Clear research.<br><em>Decisions you can use.</em></h1>
+        <p class="hero-lede">High-achieving Bucknell students combining finance, analytics, research and campus execution to help founders make sharper decisions—and put them into action.</p>
+        <div class="hero-actions">
+          <button class="button button-orange" data-open-intake>Start a project</button>
+          <button class="text-link text-button" data-open-consult>Book a 15-min consultation <span>→</span></button>
+        </div>
+        <div class="hero-trust">
+          <div><strong>6+</strong><span>client projects delivered</span></div>
+          <div><strong>3–10</strong><span>business-day turnaround</span></div>
+          <div><strong>1</strong><span>clear recommendation</span></div>
+        </div>
+      </div>
+
+      <aside class="hero-panel" aria-label="Completed project example">
+        <div class="panel-topline">
+          <span class="status-dot"></span>
+          <span>Completed decision brief</span>
+          <span class="panel-id">CASE—01</span>
+        </div>
+        <div class="brief-company">
+          <span class="company-monogram">R</span>
+          <div>
+            <p>BrandPoint / RGP</p>
+            <strong>Market sizing + positioning</strong>
+          </div>
+        </div>
+        <div class="brief-grid">
+          <div><span>Question</span><strong>Where to focus first</strong></div>
+          <div><span>Scope</span><strong>4 industries compared</strong></div>
+          <div><span>Analysis</span><strong>Market + competitors</strong></div>
+          <div><span>Output</span><strong>Priority recommendation</strong></div>
+        </div>
+        <div class="insight-card">
+          <span class="insight-label">Decision supported</span>
+          <p>Prioritize construction, where market need, founder experience and credible proof aligned most strongly.</p>
+          <div class="confidence"><span style="width:100%"></span></div>
+          <small>Delivered with assumptions, limitations and source sheet</small>
+        </div>
+        <button class="panel-action" data-scroll-proof>View the work <span>↗</span></button>
+      </aside>
+    </section>
+
+    <section class="strip" aria-label="Core capabilities">
+      <span>Buyer personas</span><i></i><span>Competitive intelligence</span><i></i><span>Website conversion</span><i></i><span>Prospect research</span><i></i><span>Market prioritization</span>
+    </section>
+
+    <section class="diagnostic-section" id="diagnostic">
+      <div class="diagnostic-intro">
+        <span class="kicker">Free founder tool</span>
+        <h2>Find the growth gap<br>costing you momentum.</h2>
+        <p>Score five parts of your growth system. The diagnostic identifies the weakest link, recommends the right sprint and gives you three actions to start now.</p>
+        <div class="diagnostic-note"><strong>3 minutes</strong><span>No account or payment required</span></div>
+      </div>
+      <form class="diagnostic-card" id="growthDiagnostic">
+        <div class="diagnostic-progress"><span id="diagnosticStepLabel">Question 1 of 5</span><div><i id="diagnosticProgress"></i></div></div>
+        <div class="question active" data-question="positioning">
+          <span class="question-number">01 / POSITIONING</span>
+          <h3>How clearly can a new customer explain what you do and why it is different?</h3>
+          <div class="score-options" role="radiogroup" aria-label="Positioning score">
+            <button type="button" data-score="1"><b>1</b><span>Unclear</span></button><button type="button" data-score="2"><b>2</b><span>Inconsistent</span></button><button type="button" data-score="3"><b>3</b><span>Basic</span></button><button type="button" data-score="4"><b>4</b><span>Clear</span></button><button type="button" data-score="5"><b>5</b><span>Distinctive</span></button>
+          </div>
+        </div>
+        <div class="question" data-question="customer">
+          <span class="question-number">02 / CUSTOMER EVIDENCE</span>
+          <h3>How confidently can you identify your best customer, their trigger and their objections?</h3>
+          <div class="score-options" role="radiogroup" aria-label="Customer evidence score">
+            <button type="button" data-score="1"><b>1</b><span>Guessing</span></button><button type="button" data-score="2"><b>2</b><span>Broad idea</span></button><button type="button" data-score="3"><b>3</b><span>Some evidence</span></button><button type="button" data-score="4"><b>4</b><span>Validated</span></button><button type="button" data-score="5"><b>5</b><span>Measured</span></button>
+          </div>
+        </div>
+        <div class="question" data-question="conversion">
+          <span class="question-number">03 / CONVERSION</span>
+          <h3>Does your website make the next step obvious and give buyers enough reason to act?</h3>
+          <div class="score-options" role="radiogroup" aria-label="Conversion score">
+            <button type="button" data-score="1"><b>1</b><span>No path</span></button><button type="button" data-score="2"><b>2</b><span>Confusing</span></button><button type="button" data-score="3"><b>3</b><span>Functional</span></button><button type="button" data-score="4"><b>4</b><span>Persuasive</span></button><button type="button" data-score="5"><b>5</b><span>Optimized</span></button>
+          </div>
+        </div>
+        <div class="question" data-question="market">
+          <span class="question-number">04 / MARKET INTELLIGENCE</span>
+          <h3>How well do you understand alternatives, competitors and the opening you can credibly own?</h3>
+          <div class="score-options" role="radiogroup" aria-label="Market intelligence score">
+            <button type="button" data-score="1"><b>1</b><span>Unknown</span></button><button type="button" data-score="2"><b>2</b><span>Informal</span></button><button type="button" data-score="3"><b>3</b><span>Mapped</span></button><button type="button" data-score="4"><b>4</b><span>Compared</span></button><button type="button" data-score="5"><b>5</b><span>Tracked</span></button>
+          </div>
+        </div>
+        <div class="question" data-question="pipeline">
+          <span class="question-number">05 / PIPELINE</span>
+          <h3>Do you have a repeatable way to identify, qualify and follow up with the right opportunities?</h3>
+          <div class="score-options" role="radiogroup" aria-label="Pipeline score">
+            <button type="button" data-score="1"><b>1</b><span>Reactive</span></button><button type="button" data-score="2"><b>2</b><span>Ad hoc</span></button><button type="button" data-score="3"><b>3</b><span>Documented</span></button><button type="button" data-score="4"><b>4</b><span>Repeatable</span></button><button type="button" data-score="5"><b>5</b><span>Predictable</span></button>
+          </div>
+        </div>
+        <div class="diagnostic-result" id="diagnosticResult">
+          <span class="question-number">YOUR GROWTH PRIORITY</span>
+          <div class="result-header"><div><strong id="resultScore">0/25</strong><span>Growth readiness</span></div><h3 id="resultTitle">Your result</h3></div>
+          <p id="resultExplanation"></p>
+          <div class="result-actions" id="resultActions"></div>
+          <div class="result-sprint"><span>Recommended engagement</span><strong id="resultSprint"></strong><button type="button" id="useResult">Use this result in my brief →</button></div>
+          <button type="button" class="restart-diagnostic" id="restartDiagnostic">Retake diagnostic</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="section" id="services">
+      <div class="section-heading">
+        <div>
+          <span class="kicker">Focused engagements</span>
+          <h2>Choose the decision<br>you need to make.</h2>
+        </div>
+      <p>Every sprint begins with a defined business question and ends with prioritized actions—not a folder of generic research. All fees are starting estimates and negotiable based on scope, timing and available data.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card featured">
+          <div class="service-number">01</div>
+          <div class="service-badge">Best place to start</div>
+          <h3>Growth Diagnostic</h3>
+          <p>Clarify the biggest growth constraint across customer, messaging, website and market positioning.</p>
+          <ul>
+            <li>Website and messaging review</li>
+            <li>Customer-friction assessment</li>
+            <li>Competitor snapshot</li>
+            <li>Prioritized 30-day action plan</li>
+          </ul>
+          <div class="service-footer"><strong>From $300</strong><span>Negotiable · 3–4 business days</span></div>
+          <button class="card-button" data-service="Growth Diagnostic">Select diagnostic <span>→</span></button>
+        </article>
+        <article class="service-card">
+          <div class="service-number">02</div>
+          <h3>Research Sprint</h3>
+          <p>Answer a strategic market question using structured, source-backed research and clear decision criteria.</p>
+          <ul>
+            <li>Buyer personas and objections</li>
+            <li>8–10 competitor comparison</li>
+            <li>Market or industry prioritization</li>
+            <li>Executive recommendation deck</li>
+          </ul>
+          <div class="service-footer"><strong>From $600</strong><span>Negotiable · 7–10 business days</span></div>
+          <button class="card-button" data-service="Research Sprint">Select research <span>→</span></button>
+        </article>
+        <article class="service-card">
+          <div class="service-number">03</div>
+          <h3>Prospect Intelligence</h3>
+          <p>Build a clean, usable prospect base around the customers, partners or referral channels that matter.</p>
+          <ul>
+            <li>Ideal-customer criteria</li>
+            <li>Up to 100 researched organizations</li>
+            <li>Public decision-maker details</li>
+            <li>CRM-ready categorization</li>
+          </ul>
+          <div class="service-footer"><strong>From $750</strong><span>Negotiable · 7–10 business days</span></div>
+          <button class="card-button" data-service="Prospect Intelligence">Select prospecting <span>→</span></button>
+        </article>
+      </div>
+    </section>
+
+    <section class="launch-lab" id="pilot">
+      <div class="launch-heading">
+        <div>
+          <span class="kicker light">Flagship campus pilot · Proposed for Club Ralley</span>
+          <h2>Turn app downloads into<br>games people actually play.</h2>
+        </div>
+        <div class="launch-price"><span>Proposed starting fee</span><strong>$850</strong><small>Negotiable scope &amp; fee · 21-day Bucknell pilot</small></div>
+      </div>
+
+      <div class="launch-grid">
+        <div class="launch-core">
+          <p class="launch-lede">The growth problem is not awareness alone. A sports marketplace becomes useful only when a student can open the app and find the right game, at the right time, with enough players. The Campus Launch Lab is designed to create and measure that activity.</p>
+          <div class="pilot-phases">
+            <article><span>Days 1–4</span><h3>Find the friction</h3><p>Review the product and current acquisition data, interview initial users, and choose priority sports and campus channels.</p></article>
+            <article><span>Days 5–10</span><h3>Build the supply</h3><p>Recruit 10–15 student hosts, prepare launch assets, and schedule the first wave of pickup sessions.</p></article>
+            <article><span>Days 11–17</span><h3>Run the experiment</h3><p>Promote sessions, track attendance, test referral messages, and collect structured participant feedback.</p></article>
+            <article><span>Days 18–21</span><h3>Package the system</h3><p>Evaluate the funnel and unit economics, then hand over the dashboard, host playbook and next-campus recommendations.</p></article>
+          </div>
+        </div>
+
+        <aside class="pilot-scorecard">
+          <span class="scorecard-label">21-day planning scorecard</span>
+          <div class="scorecard-grid">
+            <div><strong>150</strong><span>new registered users</span></div>
+            <div><strong>60</strong><span>first-game participants</span></div>
+            <div><strong>12</strong><span>completed games</span></div>
+            <div><strong>10</strong><span>active student hosts</span></div>
+          </div>
+          <p>Targets are negotiable planning benchmarks, not guaranteed outcomes. Final metrics depend on the current baseline, product analytics and available attribution.</p>
+          <button class="button button-orange" data-service="Campus Launch Lab">Discuss this pilot</button>
+        </aside>
+      </div>
+
+      <div class="pilot-deliverables">
+        <div><span>01</span><strong>Excel growth dashboard</strong><small>Registrations, first games, repeat activity and host performance</small></div>
+        <div><span>02</span><strong>User-research findings</strong><small>Structured feedback from at least 30 students</small></div>
+        <div><span>03</span><strong>Campus host playbook</strong><small>Recruiting, game setup, promotion and follow-up process</small></div>
+        <div><span>04</span><strong>30-day growth plan</strong><small>Prioritized tests, owners, measures and next-campus recommendation</small></div>
+      </div>
+
+      <div class="economics-card">
+        <div class="economics-copy">
+          <span class="kicker">Acquisition economics calculator</span>
+          <h3>Pressure-test the pilot before spending.</h3>
+          <p>Adjust the planning assumptions to see what the pilot would need to produce. This is an operating model—not a revenue forecast.</p>
+        </div>
+        <div class="economics-inputs">
+          <label>Total pilot cost <span>$</span><input id="pilotBudget" type="number" min="1" value="850"></label>
+          <label>New registrations <span></span><input id="pilotRegistrations" type="number" min="1" value="150"></label>
+          <label>First-game rate <span>%</span><input id="pilotRate" type="number" min="1" max="100" value="40"></label>
+        </div>
+        <div class="economics-results">
+          <div><span>Cost per registration</span><strong id="costPerRegistration">$5.67</strong></div>
+          <div><span>Cost per first-game player</span><strong id="costPerPlayer">$14.17</strong></div>
+          <small id="firstGameCount">Assumes 60 first-game participants.</small>
+        </div>
+      </div>
+
+      <div class="bucknell-advantage">
+        <span>The Bucknell advantage</span>
+        <p><strong>Campus access meets analytical discipline.</strong> The work is led by high-achieving Bucknell students who understand college athletics, can reach real campus communities, and have already delivered projects across market research, customer strategy, website conversion, competitive intelligence and content systems.</p>
+        <div><b>Finance</b><b>Business Analytics</b><b>Athlete Networks</b><b>6+ Delivered Projects</b></div>
+      </div>
+    </section>
+
+    <section class="value-section">
+      <div class="value-heading">
+        <span class="kicker light">What makes the work useful</span>
+        <h2>Evidence you can inspect.<br>Files your team can use.</h2>
+        <p>The final answer is only as useful as the reasoning behind it. Every project preserves the source trail, assumptions and working files—not just the presentation.</p>
+      </div>
+      <div class="value-grid">
+        <article><span>01</span><h3>Decision first</h3><p>We define the business decision before collecting information, so the research stays focused.</p><strong>Output: decision statement + success criteria</strong></article>
+        <article><span>02</span><h3>Comparable evidence</h3><p>Companies, segments and opportunities are evaluated against the same criteria instead of described separately.</p><strong>Output: editable comparison workbook</strong></article>
+        <article><span>03</span><h3>Traceable sources</h3><p>Important claims link back to public evidence, and unavailable information is marked rather than guessed.</p><strong>Output: source ledger + limitations</strong></article>
+        <article><span>04</span><h3>Action after analysis</h3><p>Recommendations are translated into owners, timing, tests and measurable next steps.</p><strong>Output: prioritized 30-day action plan</strong></article>
+      </div>
+      <div class="deliverable-band">
+        <div><span>Included with full sprints</span><strong>Executive summary</strong></div><div><strong>Editable workbook</strong></div><div><strong>Source sheet</strong></div><div><strong>Recommendation deck</strong></div><div><strong>30-day action plan</strong></div>
+      </div>
+    </section>
+
+    <section class="proof-section" id="proof">
+      <div class="proof-copy">
+        <span class="kicker light">Selected experience</span>
+        <h2>Built from real client work—not a theoretical framework.</h2>
+        <p>Led by high-achieving Bucknell students, the studio builds on delivered client work spanning customer research, market selection, competitive analysis, brand systems, website conversion and content strategy.</p>
+        <button class="button button-light" data-open-intake>Discuss your project</button>
+      </div>
+      <div class="case-gallery">
+        <article class="visual-case">
+          <button class="case-image" data-case-image="assets/portfolio/case-2.jpg" aria-label="Open BrandPoint project preview"><img src="assets/portfolio/case-2.jpg" alt="BrandPoint market sizing and competitive landscape case study" loading="lazy"></button>
+          <div class="case-content"><span>01 / Advisory venture</span><h3>BrandPoint Services</h3><p>Three personas, four-industry comparison and a market-sizing model supported the choice of an initial vertical.</p><dl><div><dt>Question</dt><dd>Where should the venture focus first?</dd></div><div><dt>Decision</dt><dd>Prioritize construction; test HVAC and plumbing.</dd></div></dl></div>
+        </article>
+        <article class="visual-case">
+          <button class="case-image" data-case-image="assets/portfolio/case-3.jpg" aria-label="Open Soma Vita project preview"><img src="assets/portfolio/case-3.jpg" alt="Soma Vita Wellness website audit case study" loading="lazy"></button>
+          <div class="case-content"><span>02 / Telehealth</span><h3>Soma Vita Wellness</h3><p>A website audit and brand toolkit converted usability, content and SEO findings into a prioritized implementation plan.</p><dl><div><dt>Question</dt><dd>What prevents patients from taking the next step?</dd></div><div><dt>Decision</dt><dd>Fix trust, service clarity and conversion paths first.</dd></div></dl></div>
+        </article>
+        <article class="visual-case">
+          <button class="case-image" data-case-image="assets/portfolio/case-4.jpg" aria-label="Open Notis Health project preview"><img src="assets/portfolio/case-4.jpg" alt="Notis Health competitive landscape case study" loading="lazy"></button>
+          <div class="case-content"><span>03 / Health technology</span><h3>Notis Health</h3><p>Ten alternatives and five institutional segments were compared to identify a credible pilot path.</p><dl><div><dt>Question</dt><dd>Where can an early product begin?</dd></div><div><dt>Decision</dt><dd>Test one university athletics pilot before scaling.</dd></div></dl></div>
+        </article>
+        <article class="visual-case">
+          <button class="case-image" data-case-image="assets/portfolio/case-5.jpg" aria-label="Open Internology project preview"><img src="assets/portfolio/case-5.jpg" alt="Internology competitive research case study" loading="lazy"></button>
+          <div class="case-content"><span>04 / Workforce development</span><h3>Internology</h3><p>Competitor benchmarking, market trends and a SWOT were turned into specific differentiation opportunities.</p><dl><div><dt>Question</dt><dd>How can Internology stand apart?</dd></div><div><dt>Decision</dt><dd>Lead with measurable quality and implementation proof.</dd></div></dl></div>
+        </article>
+        <article class="visual-case">
+          <button class="case-image" data-case-image="assets/portfolio/case-6.jpg" aria-label="Open MORE Magazine project preview"><img src="assets/portfolio/case-6.jpg" alt="MORE Magazine content package case study" loading="lazy"></button>
+          <div class="case-content"><span>05 / Media</span><h3>MORE Magazine</h3><p>Existing stories were translated into reusable graphics, captions, video concepts and a publishing calendar.</p><dl><div><dt>Question</dt><dd>How can existing content travel further?</dd></div><div><dt>Decision</dt><dd>Use a repeatable multi-format content system.</dd></div></dl></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section process" id="process">
+      <div class="section-heading">
+        <div><span class="kicker">Working together</span><h2>A simple path from<br>question to decision.</h2></div>
+        <p>Send one short request, choose when you want to speak, and receive a proposed scope before making any commitment.</p>
+      </div>
+      <ol class="process-list">
+        <li><span>01</span><div><h3>Send the question</h3><p>Share your company, the decision you need help with and the type of support you are considering.</p></div></li>
+        <li><span>02</span><div><h3>Talk for 15 minutes</h3><p>Choose a consultation before scoping or after the request is reviewed. We will confirm the time by email.</p></div></li>
+        <li><span>03</span><div><h3>Confirm the scope</h3><p>Receive a concise proposal covering deliverables, timing, boundaries and a negotiable fee.</p></div></li>
+        <li><span>04</span><div><h3>Begin only if it fits</h3><p>No payment is collected through the website and no work begins until both sides approve the scope.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="cta-section">
+      <span class="kicker">Founding-client pilot</span>
+      <h2>Bring the question.<br>Leave with the next move.</h2>
+      <p>Five pilot engagements are available for founders who want rigorous research and hands-on execution from high-achieving Bucknell students.</p>
+      <div class="cta-actions"><button class="button button-orange" data-open-intake>Request a project</button><button class="button button-dark" data-open-consult>Talk first for 15 minutes</button></div>
+      <div class="request-destination"><strong>Where does your request go?</strong><span>Directly to our project inbox. We review it and follow up by email to confirm the consultation and scope.</span></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand"><span class="brand-mark">BG</span><span>Bison Growth Desk</span></div>
+    <p>Independent, student-led research support. Not an official Bucknell University program.</p>
+    <div><a href="#services">Services</a><button data-open-consult>15-min consultation</button><button data-open-intake>Contact</button></div>
+  </footer>
+
+  <dialog id="intakeDialog" class="modal">
+    <form method="dialog" class="modal-shell" id="intakeForm">
+      <button type="button" class="modal-close" data-close-intake aria-label="Close">×</button>
+      <div class="modal-heading">
+        <span class="kicker" id="intakeKicker">Project request</span>
+        <h2 id="intakeTitle">What decision are you trying to make?</h2>
+        <p id="intakeDescription">Six short fields. We will prepare an email for you to review and send directly to our project inbox.</p>
+      </div>
+      <div class="form-grid">
+        <input type="hidden" name="diagnostic" id="diagnosticInput" />
+        <label>Your name<input name="founder" required placeholder="Your name" /></label>
+        <label>Email<input name="email" type="email" required placeholder="you@company.com" /></label>
+        <label>Company<input name="company" required placeholder="Company name" /></label>
+        <label>Company website <span class="optional">optional</span><input name="website" type="url" placeholder="https://" /></label>
+        <label class="full">What kind of help are you considering?<select name="service" id="serviceSelect" required><option value="">Choose one</option><option>Growth Diagnostic</option><option>Research Sprint</option><option>Prospect Intelligence</option><option>Campus Launch Lab</option><option>Not sure yet</option></select></label>
+        <label class="full">What decision do you need help with?<textarea name="problem" required placeholder="Example: Which customer segment should we target first?"></textarea></label>
+        <label class="full">When would you like the 15-minute consultation?<select name="consultation" id="consultationSelect" required><option value="After you review my request">After you review my request</option><option value="Before we define the project">Before we define the project</option><option value="Email me first">Email me first</option></select></label>
+        <label class="full">Preferred days or times <span class="optional">optional</span><input name="availability" placeholder="Example: Tuesday or Thursday after 2 p.m. ET" /></label>
+      </div>
+      <div class="submission-note"><strong>Direct and transparent</strong><span>Your details go directly to our project inbox. We will follow up by email; no payment is collected here.</span></div>
+      <div class="form-actions">
+        <span>No payment is collected at intake.</span>
+        <button type="submit" class="button button-orange">Send project request</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="caseDialog" class="case-modal">
+    <button type="button" class="case-modal-close" aria-label="Close project preview">×</button>
+    <img id="caseDialogImage" src="" alt="Expanded project case study preview" />
+  </dialog>
+
+  <dialog id="portalDialog" class="portal-modal">
+    <div class="portal-shell">
+      <aside class="portal-sidebar">
+        <div class="brand"><span class="brand-mark">BG</span><span>Growth Desk</span></div>
+        <nav>
+          <button class="active" data-portal-tab="overview">Overview</button>
+          <button data-portal-tab="brief">Project brief</button>
+          <button data-portal-tab="evidence">Evidence</button>
+          <button data-portal-tab="deliverables">Deliverables</button>
+        </nav>
+        <button class="portal-exit" data-close-portal>← Return to site</button>
+      </aside>
+      <section class="portal-main">
+        <header class="portal-header">
+          <div><span class="portal-label">CLIENT WORKSPACE</span><h2 id="portalCompany">Pilot Project</h2></div>
+          <span class="portal-status"><i></i><span id="portalStatus">Brief received</span></span>
+        </header>
+
+        <div class="portal-view active" data-view="overview">
+          <div class="portal-welcome"><div><span>Welcome to your workspace</span><h3 id="portalHeadline">Your growth question, organized.</h3><p>Track the project from initial brief through evidence and final recommendations.</p></div><button class="button button-dark" data-portal-tab="brief">Review brief</button></div>
+          <div class="metric-row"><div><span>Current stage</span><strong>01 / Intake</strong></div><div><span>Selected sprint</span><strong id="portalService">Growth Diagnostic</strong></div><div><span>Target delivery</span><strong id="portalDelivery">4 business days</strong></div></div>
+          <div class="portal-columns">
+            <div class="workspace-card">
+              <div class="workspace-title"><h3>Project progress</h3><span>25%</span></div>
+              <div class="progress"><span></span></div>
+              <ol class="timeline"><li class="complete"><i>✓</i><div><strong>Brief received</strong><span>Founder context and business question</span></div></li><li class="current"><i>2</i><div><strong>Scope confirmation</strong><span>Deliverables and decision criteria</span></div></li><li><i>3</i><div><strong>Research and analysis</strong><span>Evidence, comparisons and findings</span></div></li><li><i>4</i><div><strong>Recommendation</strong><span>Final materials and action plan</span></div></li></ol>
+            </div>
+            <div class="workspace-card next-card"><span class="kicker">Next action</span><h3>Confirm the project question</h3><p>The strongest project begins with one decision. Review the submitted problem and make sure it captures what you need to decide.</p><button data-portal-tab="brief">Open project brief →</button></div>
+          </div>
+        </div>
+
+        <div class="portal-view" data-view="brief">
+          <div class="view-heading"><span class="kicker">Project foundation</span><h3>Submitted business brief</h3><p>This information defines the first research scope.</p></div>
+          <div class="brief-details" id="briefDetails"></div>
+        </div>
+
+        <div class="portal-view" data-view="evidence">
+          <div class="view-heading"><span class="kicker">Research trail</span><h3>Evidence and working findings</h3><p>Sources and observations will appear here as the sprint progresses.</p></div>
+          <div class="empty-state"><span>◎</span><h4>Research has not started yet</h4><p>Once the scope is confirmed, this area will organize sources, competitors and customer signals.</p></div>
+        </div>
+
+        <div class="portal-view" data-view="deliverables">
+          <div class="view-heading"><span class="kicker">Final outputs</span><h3>Deliverables</h3><p>Review and download completed materials from one place.</p></div>
+          <div class="deliverable-list"><div><span>PDF</span><div><strong>Executive recommendation</strong><small>Pending research</small></div><i>—</i></div><div><span>XLSX</span><div><strong>Working research file</strong><small>Pending research</small></div><i>—</i></div><div><span>PDF</span><div><strong>30-day action plan</strong><small>Pending research</small></div><i>—</i></div></div>
+        </div>
+      </section>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
