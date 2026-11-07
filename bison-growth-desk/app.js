@@ -6,6 +6,12 @@ const consultationSelect = document.querySelector('#consultationSelect');
 const intakeKicker = document.querySelector('#intakeKicker');
 const intakeTitle = document.querySelector('#intakeTitle');
 const intakeDescription = document.querySelector('#intakeDescription');
+const detailsStep = document.querySelector('[data-intake-step="details"]');
+const reviewStep = document.querySelector('[data-intake-step="review"]');
+const reviewRequest = document.querySelector('#reviewRequest');
+const editRequest = document.querySelector('#editRequest');
+const reviewSubject = document.querySelector('#reviewSubject');
+const reviewMessage = document.querySelector('#reviewMessage');
 const toast = document.querySelector('#toast');
 const caseDialog = document.querySelector('#caseDialog');
 const caseDialogImage = document.querySelector('#caseDialogImage');
@@ -33,6 +39,7 @@ function showToast(message){
 }
 
 function openIntake(service='', consultation='After you review my request'){
+  showIntakeStep('details');
   if(service) serviceSelect.value = service;
   consultationSelect.value = consultation;
   const consultFirst = consultation === 'Before we define the project';
@@ -42,12 +49,50 @@ function openIntake(service='', consultation='After you review my request'){
   intakeDialog.showModal();
 }
 
+function showIntakeStep(step){
+  const reviewing = step === 'review';
+  detailsStep.classList.toggle('active', !reviewing);
+  reviewStep.classList.toggle('active', reviewing);
+  intakeForm.classList.toggle('is-reviewing', reviewing);
+  intakeKicker.textContent = reviewing ? 'Review email request' : 'Project request';
+  intakeTitle.textContent = reviewing ? 'Make it yours before it is sent.' : 'What decision are you trying to make?';
+  intakeDescription.textContent = reviewing ? 'This is the exact request our project inbox will receive. Every word remains editable.' : 'Six short fields. Your request will go directly to our project inbox for review.';
+}
+
+function buildReviewMessage(data){
+  return [
+    'Hello Growth Desk team,',
+    '',
+    `My name is ${data.founder}, and I am reaching out from ${data.company}.`,
+    `Website: ${data.website || 'Not provided'}`,
+    `Support considered: ${data.service}`,
+    '',
+    'Decision or growth question:',
+    data.problem,
+    '',
+    `Consultation preference: ${data.consultation}`,
+    `Preferred days or times: ${data.availability || 'Not provided'}`,
+    '',
+    'I understand that scope and fees are negotiable and that no payment is collected through the website.'
+  ].join('\n');
+}
+
 document.querySelectorAll('[data-open-intake]').forEach(button => button.addEventListener('click', () => openIntake()));
-document.querySelectorAll('[data-open-consult]').forEach(button => button.addEventListener('click', () => openIntake('', 'Before we define the project')));
 document.querySelectorAll('[data-service]').forEach(button => button.addEventListener('click', () => openIntake(button.dataset.service)));
 document.querySelectorAll('[data-open-portal]').forEach(button => button.addEventListener('click', () => openPortal()));
 document.querySelectorAll('[data-close-intake]').forEach(button => button.addEventListener('click', () => intakeDialog.close()));
 document.querySelectorAll('[data-close-portal]').forEach(button => button.addEventListener('click', () => portalDialog.close()));
+
+reviewRequest.addEventListener('click', () => {
+  if(!intakeForm.reportValidity()) return;
+  const data = Object.fromEntries(new FormData(intakeForm).entries());
+  reviewSubject.value = `[Growth Desk] ${data.company} project request`;
+  reviewMessage.value = buildReviewMessage(data);
+  showIntakeStep('review');
+  reviewSubject.focus();
+});
+
+editRequest.addEventListener('click', () => showIntakeStep('details'));
 
 intakeForm.addEventListener('submit', async event => {
   event.preventDefault();
@@ -58,7 +103,7 @@ intakeForm.addEventListener('submit', async event => {
   const data = Object.fromEntries(new FormData(intakeForm).entries());
   localStorage.setItem('bgdProject', JSON.stringify(data));
   const payload = new FormData(intakeForm);
-  payload.append('_subject', `[Bison Growth Desk] ${data.company} project request`);
+  payload.append('_subject', data.review_subject || `[Growth Desk] ${data.company} project request`);
   payload.append('fee_note', 'Fees and scope are negotiable. No payment is collected through the website.');
   try {
     const response = await fetch('https://formspree.io/f/mjkyagly', {
@@ -69,6 +114,7 @@ intakeForm.addEventListener('submit', async event => {
     if (!response.ok) throw new Error('Request could not be sent');
     intakeDialog.close();
     intakeForm.reset();
+    showIntakeStep('details');
     showToast('Request received. We will follow up by email to confirm next steps.');
   } catch (error) {
     showToast('The request did not send. Please try again in a moment.');
