@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Bison Growth Desk turns focused research into practical growth decisions for founder-led businesses." />
-  <title>Bison Growth Desk</title>
+  <meta name="description" content="Growth Desk turns focused research into practical growth decisions for founder-led businesses." />
+  <title>Growth Desk</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
@@ -13,9 +13,9 @@
 <body>
   <div class="announcement">Founding-client pilot · High-achieving Bucknell talent · Limited to five businesses</div>
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="Bison Growth Desk home">
-      <span class="brand-mark">BG</span>
-      <span>Bison Growth Desk</span>
+    <a class="brand" href="#top" aria-label="Growth Desk home">
+      <span class="brand-mark">GD</span>
+      <span>Growth Desk</span>
     </a>
     <nav aria-label="Primary navigation">
       <a href="#diagnostic">Free diagnostic</a>
@@ -35,7 +35,7 @@
         <p class="hero-lede">High-achieving Bucknell students combining finance, analytics, research and campus execution to help founders make sharper decisions—and put them into action.</p>
         <div class="hero-actions">
           <button class="button button-orange" data-open-intake>Start a project</button>
-          <button class="text-link text-button" data-open-consult>Book a 15-min consultation <span>→</span></button>
+          <a class="text-link text-button" data-open-consult href="https://cal.com/growth-desk/growth-consultation" target="_blank" rel="noopener">Book a 15-min consultation <span>→</span></a>
         </div>
         <div class="hero-trust">
           <div><strong>6+</strong><span>client projects delivered</span></div>
@@ -152,7 +152,7 @@
             <li>Competitor snapshot</li>
             <li>Prioritized 30-day action plan</li>
           </ul>
-          <div class="service-footer"><strong>From $300</strong><span>Negotiable · 3–4 business days</span></div>
+          <div class="service-footer"><strong>From $400</strong><span>Negotiable · 3–4 business days</span></div>
           <button class="card-button" data-service="Growth Diagnostic">Select diagnostic <span>→</span></button>
         </article>
         <article class="service-card">
@@ -314,15 +314,15 @@
       <span class="kicker">Founding-client pilot</span>
       <h2>Bring the question.<br>Leave with the next move.</h2>
       <p>Five pilot engagements are available for founders who want rigorous research and hands-on execution from high-achieving Bucknell students.</p>
-      <div class="cta-actions"><button class="button button-orange" data-open-intake>Request a project</button><button class="button button-dark" data-open-consult>Talk first for 15 minutes</button></div>
+      <div class="cta-actions"><button class="button button-orange" data-open-intake>Request a project</button><a class="button button-dark" data-open-consult href="https://cal.com/growth-desk/growth-consultation" target="_blank" rel="noopener">Talk first for 15 minutes</a></div>
       <div class="request-destination"><strong>Where does your request go?</strong><span>Directly to our project inbox. We review it and follow up by email to confirm the consultation and scope.</span></div>
     </section>
   </main>
 
   <footer>
-    <div class="brand"><span class="brand-mark">BG</span><span>Bison Growth Desk</span></div>
+    <div class="brand"><span class="brand-mark">GD</span><span>Growth Desk</span></div>
     <p>Independent, student-led research support. Not an official Bucknell University program.</p>
-    <div><a href="#services">Services</a><button data-open-consult>15-min consultation</button><button data-open-intake>Contact</button></div>
+    <div><a href="#services">Services</a><a href="https://cal.com/growth-desk/growth-consultation" target="_blank" rel="noopener">15-min consultation</a><button data-open-intake>Contact</button></div>
   </footer>
 
   <dialog id="intakeDialog" class="modal">
@@ -333,28 +333,42 @@
         <h2 id="intakeTitle">What decision are you trying to make?</h2>
         <p id="intakeDescription">Six short fields. Your request will go directly to our project inbox for review.</p>
       </div>
-      <div class="form-grid">
-        <input type="hidden" name="diagnostic" id="diagnosticInput" />
-        <label>Your name<input name="founder" required placeholder="Your name" /></label>
-        <label>Email<input name="email" type="email" required placeholder="you@company.com" /></label>
-        <label>Company<input name="company" required placeholder="Company name" /></label>
-        <label>Company website <span class="optional">optional</span><input name="website" type="url" placeholder="https://" /></label>
-        <label class="full">What kind of help are you considering?<select name="service" id="serviceSelect" required><option value="">Choose one</option><option>Growth Diagnostic</option><option>Research Sprint</option><option>Prospect Intelligence</option><option>Campus Launch Lab</option><option>Not sure yet</option></select></label>
-        <label class="full">What decision do you need help with?<textarea name="problem" required placeholder="Example: Which customer segment should we target first?"></textarea></label>
-        <label class="full">When would you like the 15-minute consultation?<select name="consultation" id="consultationSelect" required><option value="After you review my request">After you review my request</option><option value="Before we define the project">Before we define the project</option><option value="Email me first">Email me first</option></select></label>
-        <label class="full">Preferred days or times <span class="optional">optional</span><input name="availability" placeholder="Example: Tuesday or Thursday after 2 p.m. ET" /></label>
-      </div>
-      <div class="submission-note"><strong>Direct and transparent</strong><span>Your details go directly to our project inbox. We will follow up by email; no payment is collected here.</span></div>
-      <div class="form-actions">
-        <span>No payment is collected at intake.</span>
-        <button type="submit" class="button button-orange">Send project request</button>
-      </div>
+      <section class="intake-step active" data-intake-step="details">
+        <div class="form-grid">
+          <input type="hidden" name="diagnostic" id="diagnosticInput" />
+          <label>Your name<input name="founder" required placeholder="Your name" /></label>
+          <label>Email<input name="email" type="email" required placeholder="you@company.com" /></label>
+          <label>Company<input name="company" required placeholder="Company name" /></label>
+          <label>Company website <span class="optional">optional</span><input name="website" type="url" placeholder="https://" /></label>
+          <label class="full">What kind of help are you considering?<select name="service" id="serviceSelect" required><option value="">Choose one</option><option>Growth Diagnostic</option><option>Research Sprint</option><option>Prospect Intelligence</option><option>Campus Launch Lab</option><option>Not sure yet</option></select></label>
+          <label class="full">What decision do you need help with?<textarea name="problem" required placeholder="Example: Which customer segment should we target first?"></textarea></label>
+          <label class="full">When would you like the 15-minute consultation?<select name="consultation" id="consultationSelect" required><option value="After you review my request">After you review my request</option><option value="Before we define the project">Before we define the project</option><option value="Email me first">Email me first</option></select></label>
+          <label class="full">Preferred days or times <span class="optional">optional</span><input name="availability" placeholder="Example: Tuesday or Thursday after 2 p.m. ET" /></label>
+        </div>
+        <div class="submission-note"><strong>Review before sending</strong><span>The next screen shows the complete request. You can change the subject or message before anything is submitted.</span></div>
+        <div class="form-actions">
+          <span>No payment is collected at intake.</span>
+          <button type="button" class="button button-orange" id="reviewRequest">Review email request</button>
+        </div>
+      </section>
+      <section class="intake-step review-step" data-intake-step="review" aria-live="polite">
+        <div class="review-banner"><span>Step 2 of 2</span><strong>Review and edit your request</strong><p>Nothing has been sent. Make any changes below, then submit when it reads the way you want.</p></div>
+        <div class="review-fields">
+          <label>Email subject<input name="review_subject" id="reviewSubject" /></label>
+          <label>Request message<textarea name="review_message" id="reviewMessage" rows="14"></textarea></label>
+        </div>
+        <div class="submission-note"><strong>Direct and transparent</strong><span>Your final version goes directly to our project inbox. We will follow up by email to confirm the consultation and scope.</span></div>
+        <div class="form-actions review-actions">
+          <button type="button" class="button edit-request" id="editRequest">← Edit details</button>
+          <button type="submit" class="button button-orange">Send project request</button>
+        </div>
+      </section>
     </form>
   </dialog>
 
   <dialog id="caseDialog" class="case-modal">
     <button type="button" class="case-modal-close" aria-label="Close project preview">×</button>
-    <img id="caseDialogImage" src="" alt="Expanded project case study preview" />
+    <div class="case-modal-image"><img id="caseDialogImage" src="" alt="Expanded project case study preview" /></div>
   </dialog>
 
   <dialog id="portalDialog" class="portal-modal">
