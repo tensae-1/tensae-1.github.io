@@ -61,7 +61,7 @@ function showIntakeStep(step){
 
 function buildReviewMessage(data){
   return [
-    'Hello Growth Desk team,',
+    'Hello Growth Desk Labs team,',
     '',
     `My name is ${data.founder}, and I am reaching out from ${data.company}.`,
     `Website: ${data.website || 'Not provided'}`,
@@ -86,7 +86,7 @@ document.querySelectorAll('[data-close-portal]').forEach(button => button.addEve
 reviewRequest.addEventListener('click', () => {
   if(!intakeForm.reportValidity()) return;
   const data = Object.fromEntries(new FormData(intakeForm).entries());
-  reviewSubject.value = `[Growth Desk] ${data.company} project request`;
+  reviewSubject.value = `[Growth Desk Labs] ${data.company} project request`;
   reviewMessage.value = buildReviewMessage(data);
   showIntakeStep('review');
   reviewSubject.focus();
@@ -103,7 +103,7 @@ intakeForm.addEventListener('submit', async event => {
   const data = Object.fromEntries(new FormData(intakeForm).entries());
   localStorage.setItem('bgdProject', JSON.stringify(data));
   const payload = new FormData(intakeForm);
-  payload.append('_subject', data.review_subject || `[Growth Desk] ${data.company} project request`);
+  payload.append('_subject', data.review_subject || `[Growth Desk Labs] ${data.company} project request`);
   payload.append('fee_note', 'Fees and scope are negotiable. No payment is collected through the website.');
   try {
     const response = await fetch('https://formspree.io/f/mjkyagly', {
@@ -283,3 +283,55 @@ function updatePilotEconomics(){
 }
 pilotInputs.forEach(input => input.addEventListener('input', updatePilotEconomics));
 updatePilotEconomics();
+
+const financeInputIds = ['fiCustomers','fiPrice','fiVariableCost','fiFixedCost','fiStartingCash','fiGrowth'];
+const financeInputs = financeInputIds.map(id => document.querySelector(`#${id}`));
+const money = value => new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(value);
+
+function updateFinancialDashboard(){
+  const customers = Math.max(Number(document.querySelector('#fiCustomers').value) || 0, 0);
+  const price = Math.max(Number(document.querySelector('#fiPrice').value) || 0, 0);
+  const variableCost = Math.max(Number(document.querySelector('#fiVariableCost').value) || 0, 0);
+  const fixedCost = Math.max(Number(document.querySelector('#fiFixedCost').value) || 0, 0);
+  const startingCash = Math.max(Number(document.querySelector('#fiStartingCash').value) || 0, 0);
+  const growth = (Number(document.querySelector('#fiGrowth').value) || 0) / 100;
+  const contribution = price - variableCost;
+  const margin = price ? contribution / price : 0;
+  const breakEven = contribution > 0 ? Math.ceil(fixedCost / contribution) : null;
+  let cash = startingCash;
+  let currentCustomers = customers;
+  let firstPositiveMonth = null;
+  const cashSeries = [];
+  for(let month = 1; month <= 12; month += 1){
+    const operatingCash = (currentCustomers * contribution) - fixedCost;
+    cash += operatingCash;
+    if(firstPositiveMonth === null && operatingCash >= 0) firstPositiveMonth = month;
+    cashSeries.push(cash);
+    currentCustomers *= (1 + growth);
+  }
+  document.querySelector('#fiRevenue').textContent = money(customers * price);
+  document.querySelector('#fiMargin').textContent = `${(margin * 100).toFixed(1)}%`;
+  document.querySelector('#fiBreakEven').textContent = breakEven === null ? 'Not viable' : breakEven.toLocaleString();
+  document.querySelector('#fiEndingCash').textContent = money(cash);
+  const minCash = Math.min(...cashSeries, 0);
+  const maxCash = Math.max(...cashSeries, 1);
+  const range = Math.max(maxCash - minCash, 1);
+  document.querySelector('#fiChart').innerHTML = cashSeries.map((value,index) => {
+    const height = Math.max(8, ((value - minCash) / range) * 100);
+    return `<div class="cash-bar"><i style="height:${height}%"></i><span>M${index + 1}</span><b>${money(value)}</b></div>`;
+  }).join('');
+  const signal = document.querySelector('#fiSignal');
+  const detail = document.querySelector('#fiSignalDetail');
+  if(contribution <= 0){
+    signal.textContent = 'Price does not cover the variable cost per customer.';
+    detail.textContent = 'Increase price or reduce variable cost before using growth as the primary lever.';
+  } else if(firstPositiveMonth){
+    signal.textContent = `The base case reaches monthly operating break-even in month ${firstPositiveMonth}.`;
+    detail.textContent = cash < startingCash ? 'The business still finishes below starting cash, so runway remains the priority.' : 'The 12-month base case adds cash, subject to the assumptions shown.';
+  } else {
+    signal.textContent = 'The base case does not reach monthly operating break-even within 12 months.';
+    detail.textContent = 'Test price, contribution margin, fixed cost and customer growth before committing more cash.';
+  }
+}
+financeInputs.forEach(input => input.addEventListener('input', updateFinancialDashboard));
+updateFinancialDashboard();
