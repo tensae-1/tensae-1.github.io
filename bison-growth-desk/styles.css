@@ -33,3 +33,9 @@
 .edit-request{background:#e8ece9;color:var(--navy)}
 .is-reviewing .modal-heading{margin-bottom:20px}
 @media(max-width:680px){.case-image:after,.case-modal-image:after{font-size:5px}.review-actions{align-items:stretch}}
+
+/* Keep the request workflow usable on every screen size. */
+.modal{max-height:92vh;overflow:hidden}
+.modal-shell{max-height:92vh;overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding-bottom:120px}
+.intake-step.active>.form-actions{position:fixed;left:50%;bottom:4vh;transform:translateX(-50%);width:min(736px,calc(94vw - 84px));margin:0;padding:14px 16px;background:rgba(251,250,247,.98);border-top:1px solid #d8ddd9;box-shadow:0 -12px 30px rgba(7,25,39,.12);z-index:8}
+@media(max-width:680px){.modal-shell{padding-bottom:132px}.intake-step.active>.form-actions{width:calc(94vw - 40px);bottom:4vh}}
