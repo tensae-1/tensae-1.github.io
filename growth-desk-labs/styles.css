@@ -94,3 +94,9 @@
 .privacy-note{margin:16px 0 0;color:#56636d;font-size:12px;line-height:1.55}
 .toast.error{background:#8d1d22}
 .score-options button[aria-checked="true"]{background:var(--orange);border-color:var(--orange);color:var(--navy)}
+.insight-card small{color:#52616b}
+.diagnostic-intro>p,.diagnostic-note span,.finance-copy p,.cta-section p,.request-destination span{color:#4f5c65}
+.diagnostic-note strong,.finance-decision span,.deliverable-band span,.request-destination strong{color:var(--orange-text)}
+.service-number{color:#59666e}
+.demo-disclosure{color:#48565f}
+.case-content dt{color:#5f6b72}
