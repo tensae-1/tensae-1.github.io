@@ -1,26 +1,3 @@
-// Cloudflare Web Analytics: browser-specific owner opt-out.
-// Visit ?admin_preview=1 once to opt this browser out permanently.
-// Visit ?admin_preview=0 once to restore tracking on this browser.
-(function initializeVisitorAnalytics() {
-  const setting = new URLSearchParams(window.location.search).get('admin_preview');
-  const storageKey = 'gdl_analytics_opt_out';
-  let optedOut = setting === '1';
-  try {
-    if (setting === '1') localStorage.setItem(storageKey, '1');
-    if (setting === '0') localStorage.removeItem(storageKey);
-    optedOut = setting === '1' || (setting !== '0' && localStorage.getItem(storageKey) === '1');
-  } catch (_) {
-    // If storage is unavailable, ?admin_preview=1 still opts out for this page.
-  }
-  if (optedOut) return;
-
-  const beacon = document.createElement('script');
-  beacon.type = 'module';
-  beacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
-  beacon.dataset.cfBeacon = JSON.stringify({ token: '4e4c0e02d17d43b5bede4a66bac0b1f0' });
-  document.head.appendChild(beacon);
-})();
-
 const intakeDialog = document.querySelector('#intakeDialog');
 const portalDialog = document.querySelector('#portalDialog');
 const intakeForm = document.querySelector('#intakeForm');
@@ -243,6 +220,12 @@ document.querySelectorAll('[data-scroll-proof]').forEach(button => button.addEve
 
 document.querySelectorAll('[data-case-image]').forEach(button => button.addEventListener('click', () => {
   caseDialogImage.src = button.dataset.caseImage;
+  document.querySelector('#caseDialogType').textContent = button.dataset.caseType;
+  document.querySelector('#caseDialogTitle').textContent = button.dataset.caseTitle;
+  document.querySelector('#caseDialogQuestion').textContent = button.dataset.caseQuestion;
+  document.querySelector('#caseDialogWork').textContent = button.dataset.caseWork;
+  document.querySelector('#caseDialogDelivered').textContent = button.dataset.caseDelivered;
+  document.querySelector('#caseDialogDecision').textContent = button.dataset.caseDecision;
   caseDialog.showModal();
 }));
 document.querySelector('.case-modal-close').addEventListener('click', () => caseDialog.close());
