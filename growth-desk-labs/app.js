@@ -16,6 +16,35 @@ const toast = document.querySelector('#toast');
 const caseDialog = document.querySelector('#caseDialog');
 const caseDialogImage = document.querySelector('#caseDialogImage');
 const FORM_ENDPOINT = 'https://formspree.io/f/moeeovbl';
+const attributionFields = {
+  utm_source: '#utmSource',
+  utm_medium: '#utmMedium',
+  utm_campaign: '#utmCampaign',
+  utm_content: '#utmContent',
+  utm_term: '#utmTerm'
+};
+
+function captureOutreachAttribution(){
+  const params = new URLSearchParams(window.location.search);
+  let attribution = {};
+  try { attribution = JSON.parse(sessionStorage.getItem('gdlAttribution')) || {}; }
+  catch { attribution = {}; }
+
+  Object.keys(attributionFields).forEach(key => {
+    const value = params.get(key);
+    if(value) attribution[key] = value;
+    const input = document.querySelector(attributionFields[key]);
+    if(input) input.value = attribution[key] || '';
+  });
+
+  attribution.landing_page = attribution.landing_page || window.location.href;
+  const landingPage = document.querySelector('#landingPage');
+  if(landingPage) landingPage.value = attribution.landing_page;
+  try { sessionStorage.setItem('gdlAttribution', JSON.stringify(attribution)); }
+  catch { /* Attribution remains available for this page view. */ }
+}
+
+captureOutreachAttribution();
 
 const defaultProject = {
   founder: 'Founder',
