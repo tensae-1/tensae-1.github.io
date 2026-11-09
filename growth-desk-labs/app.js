@@ -15,7 +15,7 @@ const reviewMessage = document.querySelector('#reviewMessage');
 const toast = document.querySelector('#toast');
 const caseDialog = document.querySelector('#caseDialog');
 const caseDialogImage = document.querySelector('#caseDialogImage');
-const FORM_ENDPOINT = 'https://formspree.io/f/mjkyagly'; // Replace after the Formspree dashboard confirms a live form.
+const FORM_ENDPOINT = 'https://formspree.io/f/moeeovbl';
 
 const defaultProject = {
   founder: 'Founder',
