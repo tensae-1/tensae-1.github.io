@@ -15,6 +15,7 @@ const reviewMessage = document.querySelector('#reviewMessage');
 const toast = document.querySelector('#toast');
 const caseDialog = document.querySelector('#caseDialog');
 const caseDialogImage = document.querySelector('#caseDialogImage');
+const FORM_ENDPOINT = 'https://formspree.io/f/mjkyagly'; // Replace after the Formspree dashboard confirms a live form.
 
 const defaultProject = {
   founder: 'Founder',
@@ -28,14 +29,16 @@ const defaultProject = {
 };
 
 function getProject(){
-  try { return JSON.parse(localStorage.getItem('bgdProject')) || defaultProject; }
+  try { return JSON.parse(localStorage.getItem('gdlProject')) || defaultProject; }
   catch { return defaultProject; }
 }
 
-function showToast(message){
+function showToast(message, type='status'){
   toast.textContent = message;
+  toast.classList.toggle('error', type === 'error');
+  toast.setAttribute('role', type === 'error' ? 'alert' : 'status');
   toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 3200);
+  setTimeout(() => toast.classList.remove('show'), type === 'error' ? 6000 : 4200);
 }
 
 function openIntake(service='', consultation='After you review my request'){
@@ -101,23 +104,39 @@ intakeForm.addEventListener('submit', async event => {
   submitButton.disabled = true;
   submitButton.textContent = 'Sending request…';
   const data = Object.fromEntries(new FormData(intakeForm).entries());
-  localStorage.setItem('bgdProject', JSON.stringify(data));
+  if(data._gotcha){
+    intakeDialog.close();
+    intakeForm.reset();
+    showIntakeStep('details');
+    showToast('Request received. We will follow up by email to confirm next steps.');
+    submitButton.disabled = false;
+    submitButton.textContent = originalLabel;
+    return;
+  }
   const payload = new FormData(intakeForm);
   payload.append('_subject', data.review_subject || `[Growth Desks Labs] ${data.company} project request`);
   payload.append('fee_note', 'Fees and scope are negotiable. No payment is collected through the website.');
   try {
-    const response = await fetch('https://formspree.io/f/mjkyagly', {
+    const response = await fetch(FORM_ENDPOINT, {
       method: 'POST',
       body: payload,
       headers: { Accept: 'application/json' }
     });
     if (!response.ok) throw new Error('Request could not be sent');
+    const safeProject = {
+      company: data.company,
+      website: data.website,
+      service: data.service,
+      problem: data.problem,
+      diagnostic: data.diagnostic
+    };
+    localStorage.setItem('gdlProject', JSON.stringify(safeProject));
     intakeDialog.close();
     intakeForm.reset();
     showIntakeStep('details');
     showToast('Request received. We will follow up by email to confirm next steps.');
   } catch (error) {
-    showToast('The request did not send. Please try again in a moment.');
+    showToast('The request could not be sent. Please try again or book a 15-minute consultation.', 'error');
   } finally {
     submitButton.disabled = false;
     submitButton.textContent = originalLabel;
@@ -213,11 +232,19 @@ const diagnosticMap = {
   }
 };
 
-document.querySelectorAll('.score-options button').forEach(button => button.addEventListener('click', () => {
+document.querySelectorAll('.score-options').forEach(group => group.setAttribute('role', 'radiogroup'));
+document.querySelectorAll('.score-options button').forEach(button => {
+  button.setAttribute('role', 'radio');
+  button.setAttribute('aria-checked', 'false');
+  button.addEventListener('click', () => {
   const question = button.closest('.question');
   const key = question.dataset.question;
   diagnosticScores[key] = Number(button.dataset.score);
-  question.querySelectorAll('button').forEach(option => option.classList.toggle('selected', option === button));
+  question.querySelectorAll('button').forEach(option => {
+    const selected = option === button;
+    option.classList.toggle('selected', selected);
+    option.setAttribute('aria-checked', String(selected));
+  });
   if(diagnosticStep < diagnosticQuestions.length - 1){
     diagnosticQuestions[diagnosticStep].classList.remove('active');
     diagnosticStep += 1;
@@ -226,7 +253,8 @@ document.querySelectorAll('.score-options button').forEach(button => button.addE
   } else {
     showDiagnosticResult();
   }
-}));
+  });
+});
 
 function updateDiagnosticProgress(){
   document.querySelector('#diagnosticStepLabel').textContent = `Question ${diagnosticStep + 1} of ${diagnosticQuestions.length}`;
@@ -265,15 +293,18 @@ document.querySelector('#restartDiagnostic').addEventListener('click', () => {
   document.querySelector('#diagnosticResult').classList.remove('active');
   diagnosticQuestions.forEach((question,index) => {
     question.classList.toggle('active', index === 0);
-    question.querySelectorAll('button').forEach(button => button.classList.remove('selected'));
+    question.querySelectorAll('button').forEach(button => {
+      button.classList.remove('selected');
+      button.setAttribute('aria-checked', 'false');
+    });
   });
   updateDiagnosticProgress();
 });
 
 const pilotInputs = ['pilotBudget','pilotRegistrations','pilotRate'].map(id => document.querySelector(`#${id}`));
 function updatePilotEconomics(){
-  const budget = Math.max(Number(document.querySelector('#pilotBudget').value) || 0, 0);
-  const registrations = Math.max(Number(document.querySelector('#pilotRegistrations').value) || 0, 0);
+  const budget = Math.min(Math.max(Number(document.querySelector('#pilotBudget').value) || 0, 0), 10000000);
+  const registrations = Math.min(Math.max(Number(document.querySelector('#pilotRegistrations').value) || 0, 0), 10000000);
   const rate = Math.min(Math.max(Number(document.querySelector('#pilotRate').value) || 0, 0), 100);
   const firstGames = registrations * (rate / 100);
   const currency = value => Number.isFinite(value) ? `$${value.toFixed(2)}` : '—';
@@ -289,12 +320,12 @@ const financeInputs = financeInputIds.map(id => document.querySelector(`#${id}`)
 const money = value => new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(value);
 
 function updateFinancialDashboard(){
-  const customers = Math.max(Number(document.querySelector('#fiCustomers').value) || 0, 0);
-  const price = Math.max(Number(document.querySelector('#fiPrice').value) || 0, 0);
-  const variableCost = Math.max(Number(document.querySelector('#fiVariableCost').value) || 0, 0);
-  const fixedCost = Math.max(Number(document.querySelector('#fiFixedCost').value) || 0, 0);
-  const startingCash = Math.max(Number(document.querySelector('#fiStartingCash').value) || 0, 0);
-  const growth = (Number(document.querySelector('#fiGrowth').value) || 0) / 100;
+  const customers = Math.min(Math.max(Number(document.querySelector('#fiCustomers').value) || 0, 0), 1000000);
+  const price = Math.min(Math.max(Number(document.querySelector('#fiPrice').value) || 0, 0), 1000000000);
+  const variableCost = Math.min(Math.max(Number(document.querySelector('#fiVariableCost').value) || 0, 0), 1000000000);
+  const fixedCost = Math.min(Math.max(Number(document.querySelector('#fiFixedCost').value) || 0, 0), 1000000000);
+  const startingCash = Math.min(Math.max(Number(document.querySelector('#fiStartingCash').value) || 0, 0), 1000000000);
+  const growth = Math.min(Math.max(Number(document.querySelector('#fiGrowth').value) || 0, -100), 100) / 100;
   const contribution = price - variableCost;
   const margin = price ? contribution / price : 0;
   const breakEven = contribution > 0 ? Math.ceil(fixedCost / contribution) : null;

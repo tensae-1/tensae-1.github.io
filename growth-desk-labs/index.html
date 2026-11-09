@@ -224,14 +224,14 @@
       </div>
       <div class="finance-dashboard" aria-label="Founder financial intelligence sample dashboard">
         <div class="finance-inputs">
-          <label>Monthly customers<input id="fiCustomers" type="number" min="1" value="120"></label>
-          <label>Average price <span>$</span><input id="fiPrice" type="number" min="1" value="85"></label>
-          <label>Variable cost per customer <span>$</span><input id="fiVariableCost" type="number" min="0" value="28"></label>
-          <label>Monthly fixed costs <span>$</span><input id="fiFixedCost" type="number" min="0" value="5200"></label>
-          <label>Starting cash <span>$</span><input id="fiStartingCash" type="number" min="0" value="24000"></label>
+          <label>Monthly customers<input id="fiCustomers" type="number" min="0" max="1000000" value="120"></label>
+          <label>Average price <span>$</span><input id="fiPrice" type="number" min="0" max="1000000000" value="85"></label>
+          <label>Variable cost per customer <span>$</span><input id="fiVariableCost" type="number" min="0" max="1000000000" value="28"></label>
+          <label>Monthly fixed costs <span>$</span><input id="fiFixedCost" type="number" min="0" max="1000000000" value="5200"></label>
+          <label>Starting cash <span>$</span><input id="fiStartingCash" type="number" min="0" max="1000000000" value="24000"></label>
           <label>Monthly customer growth <span>%</span><input id="fiGrowth" type="number" min="-100" max="100" step="0.5" value="5"></label>
         </div>
-        <div class="finance-metrics">
+        <div class="finance-metrics" aria-live="polite">
           <article><span>Month 1 revenue</span><strong id="fiRevenue">$10,200</strong></article>
           <article><span>Contribution margin</span><strong id="fiMargin">67.1%</strong></article>
           <article><span>Break-even customers</span><strong id="fiBreakEven">92</strong></article>
@@ -287,11 +287,11 @@
           <p>Adjust the planning assumptions to see what the pilot would need to produce. This is an operating model—not a revenue forecast.</p>
         </div>
         <div class="economics-inputs">
-          <label>Total pilot cost <span>$</span><input id="pilotBudget" type="number" min="1" value="850"></label>
-          <label>New registrations <span></span><input id="pilotRegistrations" type="number" min="1" value="150"></label>
-          <label>First-game rate <span>%</span><input id="pilotRate" type="number" min="1" max="100" value="40"></label>
+          <label>Total pilot cost <span>$</span><input id="pilotBudget" type="number" min="0" max="10000000" value="850"></label>
+          <label>New registrations <span></span><input id="pilotRegistrations" type="number" min="0" max="10000000" value="150"></label>
+          <label>First-game rate <span>%</span><input id="pilotRate" type="number" min="0" max="100" value="40"></label>
         </div>
-        <div class="economics-results">
+        <div class="economics-results" aria-live="polite">
           <div><span>Cost per registration</span><strong id="costPerRegistration">$5.67</strong></div>
           <div><span>Cost per first-game player</span><strong id="costPerPlayer">$14.17</strong></div>
           <small id="firstGameCount">Assumes 60 first-game participants.</small>
@@ -402,6 +402,7 @@
       <section class="intake-step active" data-intake-step="details">
         <div class="form-grid">
           <input type="hidden" name="diagnostic" id="diagnosticInput" />
+          <label class="honeypot-field" aria-hidden="true">Leave this field blank<input name="_gotcha" tabindex="-1" autocomplete="off" /></label>
           <label>Your name<input name="founder" required placeholder="Your name" /></label>
           <label>Email<input name="email" type="email" required placeholder="you@company.com" /></label>
           <label>Company<input name="company" required placeholder="Company name" /></label>
@@ -411,6 +412,7 @@
           <label class="full">When would you like the 15-minute consultation?<select name="consultation" id="consultationSelect" required><option value="After you review my request">After you review my request</option><option value="Before we define the project">Before we define the project</option><option value="Email me first">Email me first</option></select></label>
           <label class="full">Preferred days or times <span class="optional">optional</span><input name="availability" placeholder="Example: Tuesday or Thursday after 2 p.m. ET" /></label>
         </div>
+        <p class="privacy-note">We use the information you provide only to review your request and follow up about the project. We do not sell it or add it to unrelated marketing lists.</p>
         <div class="submission-note"><strong>Review before sending</strong><span>The next screen shows the complete request. You can change the subject or message before anything is submitted.</span></div>
         <div class="form-actions">
           <span>No payment is collected at intake.</span>
@@ -487,6 +489,6 @@
   </dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=20261108"></script>
+  <script src="app.js?v=20261109"></script>
 </body>
 </html>
