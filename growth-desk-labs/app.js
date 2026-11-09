@@ -45,7 +45,7 @@ function openIntake(service='', consultation='After you review my request'){
   const consultFirst = consultation === 'Before we define the project';
   intakeKicker.textContent = consultFirst ? '15-minute consultation' : 'Project request';
   intakeTitle.textContent = consultFirst ? 'Let’s talk before defining the project.' : 'What decision are you trying to make?';
-  intakeDescription.textContent = consultFirst ? 'Share the essentials and your preferred timing. We will confirm a 15-minute conversation by email.' : 'Six short fields. Your request will go directly to our project inbox for review.';
+  intakeDescription.textContent = consultFirst ? 'Share the essentials and your preferred timing. We will confirm a 15-minute conversation by email.' : 'A short project brief. Your request will go directly to our project inbox for review.';
   intakeDialog.showModal();
 }
 
@@ -56,12 +56,12 @@ function showIntakeStep(step){
   intakeForm.classList.toggle('is-reviewing', reviewing);
   intakeKicker.textContent = reviewing ? 'Review email request' : 'Project request';
   intakeTitle.textContent = reviewing ? 'Make it yours before it is sent.' : 'What decision are you trying to make?';
-  intakeDescription.textContent = reviewing ? 'This is the exact request our project inbox will receive. Every word remains editable.' : 'Six short fields. Your request will go directly to our project inbox for review.';
+  intakeDescription.textContent = reviewing ? 'This is the exact request our project inbox will receive. Every word remains editable.' : 'A short project brief. Your request will go directly to our project inbox for review.';
 }
 
 function buildReviewMessage(data){
   return [
-    'Hello Growth Desk Labs team,',
+    'Hello Growth Desks Labs team,',
     '',
     `My name is ${data.founder}, and I am reaching out from ${data.company}.`,
     `Website: ${data.website || 'Not provided'}`,
@@ -86,7 +86,7 @@ document.querySelectorAll('[data-close-portal]').forEach(button => button.addEve
 reviewRequest.addEventListener('click', () => {
   if(!intakeForm.reportValidity()) return;
   const data = Object.fromEntries(new FormData(intakeForm).entries());
-  reviewSubject.value = `[Growth Desk Labs] ${data.company} project request`;
+  reviewSubject.value = `[Growth Desks Labs] ${data.company} project request`;
   reviewMessage.value = buildReviewMessage(data);
   showIntakeStep('review');
   reviewSubject.focus();
@@ -103,7 +103,7 @@ intakeForm.addEventListener('submit', async event => {
   const data = Object.fromEntries(new FormData(intakeForm).entries());
   localStorage.setItem('bgdProject', JSON.stringify(data));
   const payload = new FormData(intakeForm);
-  payload.append('_subject', data.review_subject || `[Growth Desk Labs] ${data.company} project request`);
+  payload.append('_subject', data.review_subject || `[Growth Desks Labs] ${data.company} project request`);
   payload.append('fee_note', 'Fees and scope are negotiable. No payment is collected through the website.');
   try {
     const response = await fetch('https://formspree.io/f/mjkyagly', {
