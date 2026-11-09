@@ -89,6 +89,18 @@
 .skip-link:focus{transform:translateY(0)}
 :focus-visible{outline:3px solid #126a96;outline-offset:3px}
 .eyebrow,.kicker,.insight-label,.service-card li:before,.process-list li>span,.case-content>span{color:var(--orange-text)}
+.case-modal{background:#f8f7f2;width:min(1240px,96vw);max-width:none;overflow:auto}
+.case-modal-layout{display:grid;grid-template-columns:minmax(360px,.72fr) minmax(500px,1.28fr);min-height:680px}
+.case-modal-summary{padding:58px 42px;background:#f8f7f2}
+.case-modal-summary h2{font-size:42px;line-height:1.04;color:var(--navy);margin:14px 0 34px}
+.case-modal-summary dl{margin:0}
+.case-modal-summary dl div{padding:18px 0;border-top:1px solid #d9ddd9}
+.case-modal-summary dt{font-size:10px;text-transform:uppercase;letter-spacing:.09em;font-weight:800;color:var(--orange-text);margin-bottom:8px}
+.case-modal-summary dd{margin:0;color:#44535e;font-size:13px;line-height:1.6}
+.case-modal-image{position:relative;display:grid;place-items:center;background:#071927;padding:34px}
+.case-modal-image img,.case-modal img{display:block;width:100%;height:auto;max-height:82vh;object-fit:contain;background:#f6f4ef}
+.case-modal-close{right:16px;top:16px;z-index:3;width:40px;height:40px;background:rgba(7,25,39,.92)}
+@media(max-width:900px){.case-modal-layout{grid-template-columns:1fr}.case-modal-summary{padding:44px 28px}.case-modal-image{padding:20px}.case-modal-summary h2{font-size:34px}}
 .kicker.light,.launch-lab .kicker,.value-section .kicker,.proof-section .kicker,.finance-dashboard .kicker{color:#ff9b6d}
 .honeypot-field{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
 .privacy-note{margin:16px 0 0;color:#56636d;font-size:12px;line-height:1.55}
