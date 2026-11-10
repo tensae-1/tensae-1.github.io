@@ -10,7 +10,7 @@ Dependency-free HTML/CSS/JavaScript website. `npm run build` copies public/ to d
 
 ## Integrations
 Formspree currently shares the existing studio endpoint moeeovbl. Submissions carry [Revenue Recovery Studio] in _subject and a source label. No existing form/account settings were changed. A dedicated endpoint can replace it in config.js.
-Cal.com currently uses the existing founder calendar, which displays Growth Desk branding. No event settings were changed. A dedicated event can replace it in config.js.
+Cal.com uses a NEW dedicated 15-minute Revenue Recovery Consultation event at https://cal.com/growth-desk/revenue-recovery under the existing founder account. Existing Growth Desk events were not changed.
 Analytics loader is implemented but disabled until a dedicated token is configured. The Growth Desks Labs token is intentionally not reused.
 
 ## Admin preview
