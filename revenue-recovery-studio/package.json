@@ -1,0 +1,9 @@
+{
+  "name": "revenue-recovery-studio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node tests-static.mjs"
+  }
+}
